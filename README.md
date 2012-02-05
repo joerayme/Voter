@@ -47,3 +47,14 @@ server {
     }
 }
 ```
+
+## Todo
+Improvements that could be made:
+* The method of determining who has voted is rudimentary (a combination of IP, user agent and request time, the latter for testing purposes) and should be hashed and set as a cookie
+* The user experience isn't brilliant:
+	* Need something more on the index page to entice people to vote (probably a pie chart of overall voting trends, explanatory text etc)
+	* Selection of constituency on the results page isn't user-friendly - search by map/postcode
+	* Same on voting page: should be able to enter a postcode rather than choose the constituency
+	* Look and feel should be customised to make it less 'bootstrap-y'
+	* Needs more graphics (graphs) to make the information easier to digest
+* The code needs commenting and automated tests built for it
