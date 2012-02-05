@@ -14,6 +14,7 @@ This is a sample voting app. It is built using Symfony 2 and Twitter Bootstrap 2
 
 ## Server setup
 Below is a sample nginx configuration file for the site which uses php-cgi:
+
 ```
 server {
     listen 80;
