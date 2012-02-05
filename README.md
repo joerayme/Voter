@@ -11,6 +11,13 @@ This is a sample voting app. It is built using Symfony 2 and Twitter Bootstrap 2
 * Copy `symfony/app/config/parameters.ini.dist` to `symfony/app/config/parameters.ini` and tweak as necessary
 * Run `php app/console doctrine:database:create` to create the database, and `php app/console doctrine:schema:update --force` to create the database schema
 * Check that the snc\_redis settings in `app/config/config.yml` are suitable for your environment
+* Make sure `symfony/app/cache` and `symfony/app/logs` are writable by the webserver (see 'Setting up Permissions' in the [Symfony docs](http://symfony.com/doc/current/book/installation.html))
+* Issue the following SQL commands against your database:
+
+```sql
+LOAD DATA INFILE '/path/to/root/symfony/parties.csv' INTO TABLE parties FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' (name);
+LOAD DATA INFILE '/path/to/root/symfony/constituencies.csv' INTO TABLE constituencies FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
+```
 
 ## Server setup
 Below is a sample nginx configuration file for the site which uses php-cgi:
