@@ -50,6 +50,7 @@ server {
 
 ## Todo
 Improvements that could be made:
+
 * The method of determining who has voted is rudimentary (a combination of IP, user agent and request time, the latter for testing purposes) and should be hashed and set as a cookie
 * The user experience isn't brilliant:
 	* Need something more on the index page to entice people to vote (probably a pie chart of overall voting trends, explanatory text etc)
