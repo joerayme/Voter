@@ -58,3 +58,15 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+snc_redis:
+    connections:
+        default:
+            alias: default
+            host: localhost
+            port: 6379
+            database: 0
+    clients:
+        default:
+            alias: default
+            connection: default

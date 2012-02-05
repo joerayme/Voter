@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<p><strong>{{ votes }}</strong> people have voted so far.</p>
+	
+	<div class="well">
+		<p>
+			{% if voted %}
+				<p>You've already voted, thanks!</p>
+			{% else %}
+				<a class="btn btn-primary btn-large" href="{{ path('MySocietyVoteBundle_vote') }}">Add your voice</a>
+			{% endif %}
+			<a class="btn btn-info btn-large" href="{{ path('MySocietyVoteBundle_results') }}">View results</a>
+		</p>
+	</div>
+{% endblock %}

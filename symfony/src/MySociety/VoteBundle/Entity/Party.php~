@@ -1,0 +1,25 @@
+<?php
+namespace MySociety\VoteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="parties")
+ */
+class Party
+{
+    /**
+     * 
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
+    
+    /**
+     * 
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $name;
+}

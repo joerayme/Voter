@@ -1,0 +1,13 @@
+MySocietyVoteBundle_homepage:
+    pattern:  /
+    defaults: { _controller: MySocietyVoteBundle:Default:index }
+
+MySocietyVoteBundle_vote:
+    pattern:  /vote/
+    defaults: { _controller: MySocietyVoteBundle:Default:vote }
+
+MySocietyVoteBundle_results:
+    pattern:  /results/{constituency}
+    defaults: { _controller: MySocietyVoteBundle:Default:results, constituency: null }
+    requirements:
+        constituency: \d+

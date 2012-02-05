@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<h3>Tell us how you intend to vote</h3>
+	{% if voted %}
+	<div class="alert alert-success">Thanks for voting. <a href="{{ path('MySocietyVoteBundle_results') }}">See the results</a></div>
+	{% else %}
+	{% form_theme form 'MySocietyVoteBundle:Form:fields.html.twig' %}
+	<form action="{{ path('MySocietyVoteBundle_vote') }}" class="form-horizontal" method="post" {{ form_enctype(form) }}>
+		{{ form_errors(form) }}
+		
+		{{ form_row(form.constituency) }}
+		{{ form_row(form.voting) }}
+		{{ form_row(form.party) }}
+		
+		{{ form_rest(form) }}
+		
+		<div class="form-actions">
+			<input type="submit" class="btn btn-primary" value="Vote!">
+		</div>
+	</form>
+	{% endif %}
+{% endblock %}

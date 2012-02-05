@@ -61,3 +61,12 @@
     git=http://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
+
+[SncRedisBundle]
+    git=https://github.com/snc/SncRedisBundle.git
+    target=/bundles/Snc/RedisBundle
+    version=1.0.2
+
+[predis]
+	git=https://github.com/nrk/predis.git
+	version=v0.7.1

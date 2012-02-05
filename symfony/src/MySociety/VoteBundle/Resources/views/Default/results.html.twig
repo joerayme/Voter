@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<h1>{% if c is defined %}{{ c }}{% else %}General Results{% endif %}</h1>
+	{% if votes > 0 %}
+		<div class="alert alert-info">
+			<p>In total, <strong>{{ votes }}</strong> people have answered the poll of which <strong>{{ voting }} ({{ voting / votes * 100 // 1 }}%)</strong> intend to vote.</p>
+			{% if votersByConstituency is defined %}
+			<p>In this constituency, <strong>{{ votersByConstituency }}</strong> people have answered the poll.</p>
+			{% endif %}
+		</div>
+		
+		<table class="table table-bordered table-striped table-condensed">
+			<thead>
+				<tr>
+					<th>Party</th>
+					<th>Votes</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for party in parties %}
+				<tr>
+					<td>{{ party.getName }}</td>
+					<td>{{ party.getVotes }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<td>Undecided</td>
+					<td>{{ undecided }}</td>
+				</tr>
+			</tbody>
+		</table>
+	{% else %}
+		<div class="alert alert-info">
+			<p>No-one's voted yet{% if c is defined %} for this constituency{% endif %}.</p>
+		</div>
+	{% endif %}		
+	
+	{% if voted %}
+	<div class="alert alert-success"><i class="icon-ok"></i> You've already voted, thanks!</div>
+	{% else %}
+	<div class="well"><a class="btn btn-primary btn-large" href="{{ path('MySocietyVoteBundle_vote') }}">Vote!</a></div>
+	{% endif %}
+	
+	<div class="well">
+		<p>View the results for a specific constituency: </p>
+		<ul>
+			<li><a href="{{ path('MySocietyVoteBundle_results') }}">General Results</a></li>
+			{% for c in constituencies %}
+			<li>
+				<a href="{{ path('MySocietyVoteBundle_results', { 'constituency': c.getId }) }}">{{ c }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
